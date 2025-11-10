@@ -38,6 +38,7 @@ header.hero {
 .hero h1 {
   font-size: 3rem;
   margin-bottom: 0.5em;
+  text-align: center;
 }
 
 .hero p {
