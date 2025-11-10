@@ -1,67 +1,140 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MCBrowser - モダンで軽快なブラウザアプリ</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MCBrowser Blog</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #222;
+      --surface: #f9f9f9;
+      --border: #e6e6e6;
+      --shadow: rgba(0, 0, 0, 0.08);
+    }
+
+    [data-theme="dark"] {
+      --bg: #0f1113;
+      --text: #f1f1f1;
+      --surface: #1a1c1f;
+      --border: #333;
+      --shadow: rgba(0, 0, 0, 0.4);
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: background 0.25s ease, color 0.25s ease;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 960px;
+      width: 100%;
+      margin-bottom: 40px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin: 0;
+      font-weight: 600;
+    }
+
+    .theme-toggle {
+      background: none;
+      border: 1px solid var(--border);
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      color: var(--text);
+      transition: all 0.25s ease;
+    }
+
+    .theme-toggle:hover {
+      background: var(--surface);
+    }
+
+    main {
+      max-width: 900px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .description {
+      color: #666;
+      margin-bottom: 28px;
+      font-size: 1.1rem;
+    }
+
+    .screenshot {
+      background: var(--surface);
+      border-radius: 16px;
+      box-shadow: 0 6px 20px var(--shadow);
+      padding: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    .screenshot:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px var(--shadow);
+    }
+
+    .screenshot img {
+      width: 100%;
+      border-radius: 12px;
+      display: block;
+    }
+
+    footer {
+      margin-top: 40px;
+      color: #888;
+      font-size: 14px;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-  <header class="hero">
-    <div class="hero-content">
-      <h1>🌐 MCBrowser</h1>
-      <p>モダンで軽快なデスクトップブラウザアプリ</p>
-      <div class="btn-group">
-        <a href="https://github.com/yourname/MCBrowser" class="btn">GitHubで見る</a>
-      </div>
-    </div>
+  <header>
+    <h1>MCBrowser Blog</h1>
+    <button class="theme-toggle" id="themeToggle">🌙 ダークモード</button>
   </header>
--
+
   <main>
-    <section class="section">
-      <h2>🧭 コンセプト</h2>
-      <p>
-        MCBrowser はシンプルさと美しさを追求した Windows 向けの軽量ブラウザです。
-        余計な機能を省き、あなたの検索・閲覧体験をスムーズにします。
-      </p>
-    </section>
+    <p class="description">
+      新しい MCBrowser のデザインが完成しました。白を基調としたモダンでクリーンなインターフェイスです。
+    </p>
 
-    <section class="section alt">
-      <h2>💡 主な特徴</h2>
-      <ul class="features">
-        <li>⚡ 素早い起動と軽快な動作</li>
-        <li>🎨 テーマ・背景のカスタマイズ対応</li>
-        <li>🕒 シンプルなホーム画面と時計機能</li>
-        <li>🔍 Google 検索に完全対応</li>
-      </ul>
-    </section>
-
-    <section class="section">
-      <h2>📸 スクリーンショット</h2>
-      <div class="gallery">
-        <img src="https://raw.githubusercontent.com/mikancat-taki/--Browserblog/refs/heads/main/%E3%82%A2%E3%83%97%E3%83%AA%E7%94%BB%E5%83%8F%EF%BC%92.png" alt="MCBrowser ホーム画面">
-      </div>
-    </section>
-
-    <section class="section alt">
-      <h2>🧱 技術構成</h2>
-      <p>
-        MCBrowser は <strong>Electron</strong> と <strong>HTML / CSS / JavaScript</strong> で構築されています。
-        デスクトップ環境でネイティブのように動作し、設定はローカル保存されます。
-      </p>
-    </section>
-
-    <section class="section">
-      <h2>📥 ダウンロード</h2>
-      <p>最新版を以下から入手できます。</p>
-      <a href="https://github.com/mikancat-taki/MCProject-Browserblog/releases/download/v.26.6.10/MCBrowser.exe" class="btn big">ダウンロード</a>
-    </section>
+    <div class="screenshot">
+      <img src="https://raw.githubusercontent.com/mikancat-taki/--Browserblog/refs/heads/main/%E3%82%A2%E3%83%97%E3%83%AA%E7%94%BB%E5%83%8F%EF%BC%92.png" alt="MCBrowser スクリーンショット">
+    </div>
   </main>
 
   <footer>
-    <p>© 2025 MCBrowser Project</p>
+    © 2025 MCBrowser Blog — Powered by GitHub Pages
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    toggle.addEventListener('click', () => {
+      const current = document.body.getAttribute('data-theme');
+      if (current === 'dark') {
+        document.body.removeAttribute('data-theme');
+        toggle.textContent = '🌙 ダークモード';
+      } else {
+        document.body.setAttribute('data-theme', 'dark');
+        toggle.textContent = '☀️ ライトモード';
+      }
+    });
+  </script>
 </body>
 </html>
